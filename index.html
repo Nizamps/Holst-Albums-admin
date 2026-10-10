@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Holst Admin</title><meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{--c0:#04222B;--c1:#0A3D4A;--c2:#10606F;--c3:#1D8B94;--c4:#4FB8B4;--c5:#98D8D0;--c6:#E2F4F0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:15px/1.5 Inter,system-ui,sans-serif;color:var(--c6);background:linear-gradient(180deg,var(--c3) -40%,var(--c1) 35%,var(--c0) 100%) fixed;min-height:100vh}
+a{color:inherit}.script{font-family:Poppins,system-ui,sans-serif;font-weight:800;letter-spacing:-.03em}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;position:sticky;top:env(safe-area-inset-top,0px);background:#04222Bd9;backdrop-filter:blur(8px);z-index:5}
+header .logo{font-size:24px;color:var(--c4);text-decoration:none}nav a{margin-left:18px;text-decoration:none;color:var(--c5);font-size:14px}
+main{max-width:1000px;margin:0 auto;padding:28px 5vw 80px}
+h1,h2,h3{font-family:Poppins,system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;margin:.2em 0 .4em}h1{font-size:clamp(30px,6vw,52px);line-height:1.1}
+.script.big{font-size:clamp(52px,12vw,104px);color:var(--c4);line-height:1;letter-spacing:-.05em}
+.steps{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap}.steps span{padding:5px 12px;border-radius:99px;background:#ffffff14;font-size:12px;color:var(--c5)}.steps .on{background:var(--c4);color:var(--c0);font-weight:600}
+.btn{display:inline-block;border:0;border-radius:99px;padding:12px 28px;font:700 15px Poppins,sans-serif;background:var(--c4);color:var(--c0);cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--c5)}.btn.ghost{background:transparent;border:1.5px solid var(--c4);color:var(--c5)}.btn[disabled]{opacity:.4;pointer-events:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px}
+.card{background:var(--c1);border:1px solid #4FB8B455;border-radius:22px;padding:16px;cursor:pointer;transition:.2s}.card:hover,.card.sel{border-color:var(--c4);transform:translateY(-3px);box-shadow:0 10px 30px #0006}.card.sel{background:var(--c2)}
+.cover{aspect-ratio:1;border-radius:6px 14px 14px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;box-shadow:inset 8px 0 10px -6px #0005,0 8px 20px #0005;padding:10%}
+.cover::after{content:"";position:absolute;bottom:-30%;left:-10%;width:120%;height:55%;border-radius:50%;background:currentColor;opacity:.13}
+.cover b{font:800 clamp(20px,4vw,32px) Poppins,sans-serif;line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;z-index:1}.cover small{letter-spacing:.3em;font-size:11px;margin-top:8px;z-index:1}
+.row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}.row>*{flex:1 1 300px}
+input,textarea,select{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid #4FB8B466;background:var(--c0);color:var(--c6);font:inherit;margin:4px 0 12px}
+label{font-size:13px;color:var(--c5)}.panel{background:var(--c1);border-radius:22px;padding:22px;border:1px solid #4FB8B433}
+.drop{border:2px dashed var(--c4);border-radius:22px;padding:36px;text-align:center;cursor:pointer;background:#ffffff08}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:16px}
+.thumbs div{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--c0)}.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs button.x{position:absolute;top:4px;right:4px;border:0;border-radius:50%;width:24px;height:24px;background:#04222Bcc;color:#fff;cursor:pointer}
+.thumbs .n{position:absolute;left:4px;bottom:4px;background:#04222Bcc;font-size:11px;padding:1px 7px;border-radius:9px}
+.thumbs div.over{outline:3px solid var(--c4)}
+.book{display:flex;gap:4px;justify-content:center;align-items:stretch;max-width:640px;margin:0 auto}.book>*{flex:1;aspect-ratio:1;border-radius:4px;overflow:hidden;background:var(--c6)}.book img{width:100%;height:100%;object-fit:cover}
+.book .blank{background:var(--c5)}.muted{color:var(--c5);opacity:.85}.price{font-size:26px;font-weight:600;color:var(--c4)}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #4FB8B433;font-size:14px}
+.pill{padding:3px 11px;border-radius:99px;background:var(--c3);font-size:12px}
+.pay{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.pay .card{flex:1 1 120px;padding:12px;text-align:center}
+.hero{text-align:center;padding:40px 0 20px}.hero p{max-width:520px;margin:0 auto 24px;color:var(--c5)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:40px}.flow div{background:var(--c1);padding:16px;border-radius:18px;text-align:center;font-size:13px}.flow b{display:block;font:800 30px Poppins,sans-serif;color:var(--c4)}
+@media(max-width:640px){main{padding:18px 16px 60px}header{padding:10px 16px}header .logo{font-size:20px}nav a{margin-left:12px}.steps{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}.steps span{white-space:nowrap}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:10px;border-radius:16px}.row>*{flex-basis:100%}.panel{padding:16px}.hero{padding:20px 0}.btn{padding:12px 22px}}
+
+.toast{position:fixed;right:16px;bottom:16px;background:var(--c4);color:var(--c0);padding:12px 18px;border-radius:14px;font-weight:600;z-index:9;max-width:80vw}
+tr[data-id]{cursor:pointer}tr[data-id]:hover{background:#ffffff0d}
+.thumbs div{cursor:grab}.thumbs .x{width:auto;border-radius:9px;padding:0 7px}
+@media(max-width:700px){table,tbody,tr,td{display:block}tr:first-child{display:none}tr{padding:10px 0;border-bottom:1px solid #4FB8B433}td{border:0;padding:2px 0}}
+</style></head><body>
+<header><a class="logo script" href="#/">Holst Admin</a><nav id="nv"></nav></header>
+<main id="app"></main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+// === Same Supabase project as the customer site ===
+const SB_URL='YOUR_SUPABASE_URL',SB_KEY='YOUR_SUPABASE_ANON_KEY',BUCKET='album-photos';
+const sb=supabase.createClient(SB_URL,SB_KEY);
+const TH={goa:'Goa',ladakh:'Ladakh',kerala:'Kerala',wedding:'Our Wedding',baby:'Baby Days',couple:'Us Two'},SZ={s:'8×8 in',m:'10×10 in',l:'12×12 in'},ST=['New','Proofing','Printing','Shipped','Delivered'];
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const inr=n=>'₹'+Number(n).toLocaleString('en-IN');
+let filter='All',authed=false;
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)}
+function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
+async function init(){const{data:{session}}=await sb.auth.getSession();if(!session)return login();authed=true;
+ $('#nv').innerHTML='<a href="#/">Orders</a><a href="#" id="so">Sign out</a>';
+ $('#so').onclick=async e=>{e.preventDefault();await sb.auth.signOut();location.hash='';location.reload()};
+ sb.channel('orders').on('postgres_changes',{event:'INSERT',schema:'public',table:'orders'},p=>{toast('New order '+p.new.id+' from '+p.new.name);if(!location.hash.slice(2))list()}).subscribe();
+ addEventListener('hashchange',route);route()}
+function login(){app.innerHTML=`<div class="panel" style="max-width:380px;margin:40px auto"><h1 style="font-size:28px">Admin login</h1><label>Email</label><input id="em" type="email"><label>Password</label><input id="pw" type="password"><p id="er" style="color:#ff9d9d"></p><button class="btn" id="li">Sign in</button></div>`;
+ $('#li').onclick=async()=>{const{error}=await sb.auth.signInWithPassword({email:$('#em').value,password:$('#pw').value});error?$('#er').textContent=error.message:location.reload()}}
+function route(){const id=location.hash.slice(2);id?detail(id):list()}
+async function list(){const{data:o,error}=await sb.from('orders').select('id,created_at,theme,size,name,phone,total,status,photo_paths').order('created_at',{ascending:false});
+ if(error)return app.innerHTML='<p>'+esc(error.message)+'</p>';
+ const rows=o.filter(x=>filter=='All'||x.status==filter);
+ app.innerHTML=`<h1>Orders <span class="pill">${o.length}</span></h1><div class="steps">${['All',...ST].map(s=>`<span class="${s==filter?'on':''}" data-f="${s}" style="cursor:pointer">${s}${s=='All'?'':' ('+o.filter(x=>x.status==s).length+')'}</span>`).join('')}</div><div class="panel">${rows.length?`<table><tr><th>Order</th><th>Customer</th><th>Album</th><th>Photos</th><th>Total</th><th>Status</th></tr>${rows.map(x=>`<tr data-id="${esc(x.id)}"><td><b>${esc(x.id)}</b><br><span class="muted">${new Date(x.created_at).toLocaleString('en-IN')}</span></td><td>${esc(x.name)}<br><span class="muted">${esc(x.phone)}</span></td><td>${TH[x.theme]||x.theme} · ${SZ[x.size]||x.size}</td><td>${x.photo_paths.length} photos</td><td>${inr(x.total)}</td><td><span class="pill">${x.status}</span></td></tr>`).join('')}</table>`:'No orders yet.'}</div>`;
+ app.querySelectorAll('[data-f]').forEach(e=>e.onclick=()=>{filter=e.dataset.f;list()});
+ app.querySelectorAll('[data-id]').forEach(e=>e.onclick=()=>location.hash='#/'+e.dataset.id)}
+async function detail(id){const{data:o}=await sb.from('orders').select('*').eq('id',id).single();if(!o)return location.hash='';
+ let paths=[...o.photo_paths];const{data:u}=await sb.storage.from(BUCKET).createSignedUrls(paths,3600);const url={};(u||[]).forEach(x=>url[x.path]=x.signedUrl);
+ const ph=String(o.phone).replace(/\D/g,'').slice(-10);
+ app.innerHTML=`<p><a href="#/">‹ All orders</a></p><h1>${esc(o.id)} · ${esc(o.title)}</h1><div class="row"><div class="panel"><h3 style="margin-top:0">Customer</h3>${esc(o.name)}<br>${esc(o.phone)} · ${esc(o.email)}<br>${esc(o.addr)}, ${esc(o.city)} ${esc(o.pin)}<p class="muted">Paid via ${esc(o.pay).toUpperCase()} · ${inr(o.total)}</p><a class="btn ghost" target="_blank" href="https://wa.me/91${ph}">WhatsApp</a></div><div class="panel"><h3 style="margin-top:0">Album</h3>${TH[o.theme]||o.theme} · ${SZ[o.size]||o.size} · ${paths.length} photos<br>Cover: "${esc(o.title)}" ${esc(o.year)}<br>Note: ${esc(o.note)||'—'}<label>Status</label><select id="st">${ST.map(s=>`<option ${s==o.status?'selected':''}>${s}</option>`).join('')}</select></div></div><h2>Photos <span class="muted" style="font-size:14px">drag to arrange page order</span> <button class="btn ghost" id="zip" style="float:right;padding:8px 18px">Download all (.zip)</button></h2><div class="thumbs" id="th" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr))"></div>`;
+ $('#st').onchange=async e=>{const{error}=await sb.from('orders').update({status:e.target.value}).eq('id',id);toast(error?error.message:'Status updated')};
+ const fetchBlob=async p=>(await fetch(url[p])).blob(),nm=i=>id+'_'+String(i+1).padStart(3,'0')+'.jpg';
+ $('#zip').onclick=async e=>{e.target.textContent='Preparing…';const z=new JSZip();for(let i=0;i<paths.length;i++)z.file(nm(i),await fetchBlob(paths[i]));dl(await z.generateAsync({type:'blob'}),id+'_photos.zip');e.target.textContent='Download all (.zip)'};
+ let drag=null;const draw=()=>{$('#th').innerHTML=paths.map((p,i)=>`<div draggable="true" data-p="${i}"><img src="${url[p]||''}" loading="lazy"><span class="n">Page ${i+1}</span><button class="x" data-d="${i}">↓</button></div>`).join('');
+  $('#th').querySelectorAll('[data-p]').forEach(d=>{d.ondragstart=()=>drag=+d.dataset.p;d.ondragover=e=>{e.preventDefault();d.classList.add('over')};d.ondragleave=()=>d.classList.remove('over');d.ondrop=async e=>{e.preventDefault();const j=+d.dataset.p;if(drag!=null&&drag!=j){const[m]=paths.splice(drag,1);paths.splice(j,0,m);draw();const{error}=await sb.from('orders').update({photo_paths:paths}).eq('id',id);toast(error?error.message:'Order saved')}}});
+  $('#th').querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>dl(await fetchBlob(paths[+b.dataset.d]),nm(+b.dataset.d)))};draw()}
+init();
+</script></body></html>
